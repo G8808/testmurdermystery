@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Murder Mystery Multiplayer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="joinScreen" class="screen">
+    <div class="panel">
+      <h1>Murder Mystery Room</h1>
+      <label>
+        Display name
+        <input id="displayNameInput" type="text" placeholder="Enter a temporary name" maxlength="16" />
+      </label>
+      <label>
+        Room code
+        <input id="roomCodeInput" type="text" placeholder="ABC123" maxlength="6" />
+      </label>
+      <div class="button-row">
+        <button id="createRoomButton">Create Room</button>
+        <button id="joinRoomButton">Join Room</button>
+      </div>
+      <p class="hint">Create a room or join with a room code. Use at least 3 players for a real game.</p>
+      <p id="joinMessage" class="message"></p>
+    </div>
+  </div>
+
+  <div id="gameScreen" class="screen hidden">
+    <header class="topbar">
+      <div>
+        <strong>Room:</strong> <span id="roomCodeDisplay"></span>
+      </div>
+      <div>
+        <strong>Status:</strong> <span id="statusText">Waiting for players...</span>
+      </div>
+      <div>
+        <button id="startGameButton" class="secondary">Start Game</button>
+        <button id="leaveRoomButton" class="secondary">Leave Room</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel info-panel">
+        <h2>Players</h2>
+        <div id="playersList" class="players-list"></div>
+        <h2>Tasks</h2>
+        <div id="taskPanel" class="task-panel"></div>
+      </section>
+
+      <section class="panel map-panel">
+        <div class="map-legend">
+          <div><span class="legend-box legend-task"></span> Task zone</div>
+          <div><span class="legend-box legend-player"></span> Players</div>
+        </div>
+        <div id="mapArea" class="map-area"></div>
+      </section>
+    </main>
+
+    <footer class="footer-panel">
+      <div id="controls">Use WASD or arrow keys to move.</div>
+      <div id="messageBox" class="message"></div>
+    </footer>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
